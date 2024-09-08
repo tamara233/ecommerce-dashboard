@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+Store Dashboard - E-commerce Product Management Application
+This is a product management dashboard built using React.js, Redux Toolkit, and TypeScript. 
+For logging in as an admin user please use 'admin' credential for both username and password. The application allows admin users to:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-View a paginated list of products
+-Add new products
+-Edit existing products
+-Delete products
 
-## Available Scripts
+Project Structure
+.
+├── public
+│   └── index.html
+├── src
+│   ├── components
+│   │   ├── dashboard
+│   │   │   ├── Dashboard.tsx
+│   │   │   ├── AddProductForm.tsx
+│   │   │   ├── EditProductForm.tsx
+│   │   └── shared
+│   │       └── Header.tsx
+│   ├── redux
+│   │   ├── productsSlice.ts
+│   │   └── store.ts
+│   ├── App.tsx
+│   ├── index.tsx
+│   ├── types.ts
+│   └── styles.css
+└── README.md
 
-In the project directory, you can run:
+How to Run the Project:
+- Remotely:
+Please follow the URL for live deployment in Vercel: 
 
-### `npm start`
+-Locally:
+1. Clone the repository: git clone https://github.com/your-username/store-dashboard.git
+2. Navigate to the project directory: cd store-dashboard
+3. Install dependencies: npm install
+4. Run the project: npm start
+This will start a development server and you can view the project at http://localhost:3000/.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Assumptions and Decisions
+-Protected route /dashboard for admin users only 
+-Mock API for Products: The products are fetched from a fake JSON API using Axios for requests. 
+-State Management: Redux Toolkit together with Thunk is used for managing state.
+-Local updates: All product changes (add, edit, delete) are done locally in memory, not persisted to a backend, so they won't survive a page refresh.
+-Material-UI: The UI is styled using Material-UI components for faster development and consistent UI elements.
+-Form Validation: Basic validation is applied to all forms to ensure required fields are filled.
+-Pagination: The product list supports pagination with 10 products per page.
+-Loading state for products.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Future Improvements
+-Integrate a backend for data persistence.
+-Enhance form validation to handle more advanced cases (price must be positive, etc.).
+-Add user authentication and role-based access control, persist token.
+-Make components more reusable (forms, buttons etc.)
+-Enhance pagination.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+It's the first version of the project and future changes and updates can be expected upon requirement. For further clarifiations please contact the owner directly at tamara.sirakanyan@gmail.com
