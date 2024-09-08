@@ -1,4 +1,4 @@
-# Store Dashboard - E-commerce Product Management App
+## Store Dashboard - E-commerce Product Management App
 This is a product management dashboard built using React.js, Redux Toolkit, and TypeScript. 
 For logging in as an admin user please use **'admin'** credential for both username and password. The application allows admin users to:
 
