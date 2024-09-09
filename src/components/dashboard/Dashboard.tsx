@@ -43,8 +43,10 @@ const Dashboard: React.FC = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchProducts(currentPage));
-  }, [dispatch, currentPage]);
+    if (products.length === 0) {
+      dispatch(fetchProducts(currentPage));
+    }
+  }, []);
 
   const handlePageChange = (event: null | React.MouseEvent<HTMLButtonElement>, newPage: number) => {
     event?.preventDefault()
@@ -77,6 +79,8 @@ const Dashboard: React.FC = () => {
       return 0;
     });
 
+  const productsPerPage = 10;
+  const paginatedProducts = filteredProducts.slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage);
 
   return (
     <Container>
@@ -109,10 +113,12 @@ const Dashboard: React.FC = () => {
                     <TableCell>Price</TableCell>
                     <TableCell>Category</TableCell>
                     <TableCell>Availability</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {filteredProducts.slice(0, 10).map((product: Product) => (
+                  {paginatedProducts.map((product: Product) => (
                     <TableRow key={product.id}>
                       <TableCell>{product.name}</TableCell>
                       <TableCell>{product.description}</TableCell>
@@ -139,12 +145,11 @@ const Dashboard: React.FC = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-            {console.log('total', totalPages)}
             {filteredProducts.length / 10 > 1 && <TablePagination
-              rowsPerPageOptions={[10]}
+              rowsPerPageOptions={[productsPerPage]}
               component="div"
               count={filteredProducts.length}
-              rowsPerPage={10}
+              rowsPerPage={productsPerPage}
               page={currentPage - 1}
               onPageChange={handlePageChange}
             />}

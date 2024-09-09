@@ -32,7 +32,8 @@ Project Structure
 
 How to Run the Project:
 ### - Remotely:
-Please follow the URL for live deployment in Vercel: 
+Please follow the URL for live deployment in Vercel: ecommerce-dashboard-three-rho.vercel.app
+Please use 'admin' for username and password
 
 ### -Locally:
 1. Clone the repository: git clone https://github.com/tamara233/ecommerce-dashboard.git

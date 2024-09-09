@@ -27,7 +27,7 @@ export const fetchProducts = createAsyncThunk(
             responseType: 'json',
         });
         return {
-            products: response.data.slice(0, 30).map((product: any) => ({
+            products: response.data.slice(0, 60).map((product: any) => ({
                 ...product,
                 availability: String(Math.random() < 0.5),
             })),
@@ -76,7 +76,6 @@ const productsSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(fetchProducts.fulfilled, (state, action) => {
-                console.log('fetch new')
                 state.status = 'idle';
                 state.products = action.payload.products;
                 state.totalPages = Math.ceil(action.payload.products.length / 10);
